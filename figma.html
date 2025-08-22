@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Learn Figma — Official Links, Wikipedia Tree & YouTube</title>
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: #121a2b;
+            --ink: #eaf0ff;
+            --muted: #9fb0d9;
+            --accent: #6aa2ff;
+            --accent-2: #7cf3d4;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+            background: linear-gradient(180deg, #0b1220, #0b1220 40%, #0f1a33);
+            color: var(--ink);
+        }
+
+        header {
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: clamp(24px, 4vw, 40px);
+            letter-spacing: .2px
+        }
+
+        header p {
+            margin: 8px auto 0;
+            max-width: 800px;
+            color: var(--muted)
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px 60px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: radial-gradient(1200px 400px at -10% -10%, #1a2a52, transparent 30%), var(--card);
+            border: 1px solid #1f2a46;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        }
+
+        .card h2 {
+            margin: .2rem 0 1rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: #cfe0ff
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: #0e1a34;
+            border: 1px solid #253555;
+            border-radius: 12px
+        }
+
+        .list {
+            display: grid;
+            gap: 10px
+        }
+
+        .list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            background: #0d1833;
+            border: 1px solid #223354;
+            border-radius: 12px;
+            transition: transform .12s ease
+        }
+
+        .list a:hover {
+            transform: translateY(-1px)
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .divider {
+            height: 1px;
+            background: #1f2a46;
+            margin: 18px 0
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .search {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid #253555;
+            background: #0d1833;
+            color: var(--ink)
+        }
+
+        /* Tree */
+        details {
+            background: #0d1833;
+            border: 1px solid #223354;
+            border-radius: 12px;
+            padding: 12px 14px;
+        }
+
+        details+details {
+            margin-top: 10px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #cfe0ff
+        }
+
+        .tree {
+            margin: 8px 0 0 0;
+            padding-left: 12px
+        }
+
+        .tree li {
+            margin: 6px 0;
+            color: var(--muted)
+        }
+
+        /* Video embeds */
+        .video {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #1f2a46;
+            background: #000
+        }
+
+        .video::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%
+        }
+
+        /* 16:9 */
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 30px 16px
+        }
+
+        .tag {
+            font-size: .78rem;
+            padding: .2rem .5rem;
+            border: 1px solid #2a3a5e;
+            border-radius: 999px;
+            color: #b9caef;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn Figma, Fast ⚡</h1>
+        <p>All the <strong>official Figma links</strong>, a quick <strong>Wikipedia overview</strong>, and the best
+            <strong>YouTube playlists</strong>—organized in one sharable page.</p>
+    </header>
+
+    <div class="wrap">
+        <!-- Top actions -->
+        <div class="row" style="margin-bottom:16px">
+            <span class="pill">🔎 Quick Filter <span class="tag">client-ready</span></span>
+            <input id="filter" class="search"
+                placeholder="Type to filter links & topics… (e.g., ‘beginners’, ‘dev mode’, ‘education’)">
+        </div>
+
+        <div class="grid">
+            <!-- OFFICIAL -->
+            <section class="card" id="official">
+                <h2>Official Figma Links</h2>
+                <div class="list" id="official-list">
+                    <a href="https://www.figma.com/" target="_blank" data-tags="official website product">
+                        <span>🏠 Figma — Official Website</span><span class="tag">Official</span>
+                    </a>
+                    <a href="https://help.figma.com/hc/en-us" target="_blank"
+                        data-tags="help docs documentation learn support">
+                        <span>📚 Figma Help Center</span><span class="tag">Docs</span>
+                    </a>
+                    <a href="https://www.figma.com/resource-library/design-basics/" target="_blank"
+                        data-tags="resource library design basics learn">
+                        <span>🧭 Resource Library — Design Basics</span><span class="tag">Learn</span>
+                    </a>
+                    <a href="https://www.figma.com/education/" target="_blank"
+                        data-tags="education student teacher free">
+                        <span>🎓 Figma for Education</span><span class="tag">Free</span>
+                    </a>
+                    <a href="https://www.figma.com/sites/" target="_blank" data-tags="sites websites publish">
+                        <span>🌐 Figma Sites (Design → Publish)</span><span class="tag">Web</span>
+                    </a>
+                    <a href="https://forum.figma.com/" target="_blank" data-tags="community forum discuss help">
+                        <span>👥 Figma Community Forum</span><span class="tag">Community</span>
+                    </a>
+                    <a href="https://www.youtube.com/@Figma/playlists" target="_blank"
+                        data-tags="youtube channel playlists official video">
+                        <span>▶️ Figma — Official YouTube Channel</span><span class="tag">Video</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- WIKIPEDIA TREE -->
+            <section class="card" id="wiki">
+                <h2>Wikipedia Overview (Figma)</h2>
+                <p class="muted">Snapshot to guide your research. For details, see the full article:</p>
+                <p><a href="https://en.wikipedia.org/wiki/Figma" target="_blank">🔗 Figma — Wikipedia</a></p>
+                <div class="divider"></div>
+
+                <details open>
+                    <summary>What is Figma?</summary>
+                    <ul class="tree">
+                        <li>Collaborative UI/UX design and prototyping tool</li>
+                        <li>Real-time multi-user editing & handoff</li>
+                        <li>Desktop apps + Web app; mobile viewer</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>Platforms & Availability</summary>
+                    <ul class="tree">
+                        <li>Web application</li>
+                        <li>Desktop: macOS, Windows</li>
+                        <li>Mobile viewers: iOS, Android</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>Key Products</summary>
+                    <ul class="tree">
+                        <li>Figma Design</li>
+                        <li>FigJam (whiteboarding)</li>
+                        <li>Dev Mode</li>
+                        <li>Figma Sites</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>Company & History</summary>
+                    <ul class="tree">
+                        <li>Company: Figma, Inc. (founded by Dylan Field & Evan Wallace)</li>
+                        <li>Initial release: 2016</li>
+                        <li>Focus: design collaboration, prototyping, developer handoff</li>
+                    </ul>
+                </details>
+
+                <p class="muted" style="margin-top:10px">Note: This summary is for quick orientation. Always verify
+                    latest facts on Wikipedia.</p>
+            </section>
+
+            <!-- YOUTUBE -->
+            <section class="card" id="youtube">
+                <h2>Watch & Learn (YouTube)</h2>
+                <div class="list" id="yt-list" style="margin-bottom:14px">
+                    <a href="https://www.youtube.com/@Figma/playlists" target="_blank"
+                        data-tags="official playlists channel video beginners">
+                        <span>📺 Figma — Official Channel Playlists</span><span class="tag">Official</span>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLXDU_eVOJTx7QHLShNqIXL1Cgbxj7HlN4" target="_blank"
+                        data-tags="official beginners intro course tutorial series">
+                        <span>🎒 Figma for Beginners (Official Playlist)</span><span class="tag">Start Here</span>
+                    </a>
+                </div>
+
+                <!-- Embedded videos: official channel + beginners playlist -->
+                <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px">
+                    <div class="video" data-tags="official channel">
+                        <iframe title="Figma Official Channel"
+                            src="https://www.youtube.com/embed?listType=playlist&list=PLXDU_eVOJTx7QHLShNqIXL1Cgbxj7HlN4"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video" data-tags="official playlist beginners">
+                        <iframe title="Figma for Beginners — Playlist"
+                            src="https://www.youtube.com/embed/videoseries?list=PLXDU_eVOJTx7QHLShNqIXL1Cgbxj7HlN4"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="muted">© 2025 — Curated by Rizwan Khan • Built with HTML, CSS & vanilla JS</div>
+        </footer>
+    </div>
+
+    <script>
+        // Simple client-side filter across links and videos
+        (function () {
+            const filter = document.getElementById('filter');
+            const items = Array.from(document.querySelectorAll('[data-tags]'));
+            function applyFilter(q) {
+                const term = q.trim().toLowerCase();
+                items.forEach(el => {
+                    const tags = (el.getAttribute('data-tags') || '').toLowerCase();
+                    const text = el.textContent.toLowerCase();
+                    const hit = !term || tags.includes(term) || text.includes(term);
+                    el.style.display = hit ? '' : 'none';
+                });
+            }
+            filter.addEventListener('input', e => applyFilter(e.target.value));
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Define & Conceptualize — Project Landing Page</title>
+    <style>
+        :root {
+            --bg: #f4f5f7;
+            --card: #ffffff;
+            --ink: #333333;
+            --muted: #6b6b6b;
+            --accent: #4a90e2;
+            --accent-light: #66aefb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+            background: var(--bg);
+            color: var(--ink);
+        }
+
+        header {
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+        }
+
+        header p {
+            margin-top: 12px;
+            font-size: 18px;
+            line-height: 1.4;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .tree details {
+            background: #f1f2f4;
+            border: 1px solid #d1d3d6;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .tree ul {
+            margin-top: 6px;
+            padding-left: 16px;
+            color: var(--muted);
+        }
+
+        .list li {
+            margin-bottom: 8px;
+        }
+
+        .video {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 24px 16px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Define & Conceptualize</h1>
+        <p>Transforming research insights into clear problem statements and structured solution concepts.</p>
+    </header>
+
+    <div class="container">
+
+        <section class="card">
+            <h2>Phase Overview</h2>
+            <p>With research insights in hand, this stage focuses on <strong>defining the core problem</strong> and
+                <strong>conceptualizing solutions</strong>. It’s where <em>user personas</em>, <em>journey maps</em>,
+                and
+                <em>problem statements</em> come to life. Clarity at this stage ensures we're solving the right problems
+                in the
+                right ways.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Conceptualization Methods</h2>
+            <ul class="list">
+                <li>• User Personas & Empathy Mapping</li>
+                <li>• Journey Mapping & Service Blueprints</li>
+                <li>• "How Might We" Questions</li>
+                <li>• Problem Statements & Insight Clustering</li>
+                <li>• Brainstorming & Early Concept Sketches</li>
+            </ul>
+        </section>
+
+        <section class="card tree">
+            <h2>Define & Conceptualize Framework</h2>
+            <details open>
+                <summary>Goals</summary>
+                <ul>
+                    <li>Align the team on a clear problem definition</li>
+                    <li>Prioritize user pain points & opportunities</li>
+                    <li>Create a foundation for ideation</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Techniques</summary>
+                <ul>
+                    <li>Persona development from research data</li>
+                    <li>Customer journey & touchpoint mapping</li>
+                    <li>Reframing problems into opportunities</li>
+                    <li>Insight-driven brainstorming prompts</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Outputs</summary>
+                <ul>
+                    <li>Personas & journey maps</li>
+                    <li>Problem statements</li>
+                    <li>Opportunity areas for ideation</li>
+                    <li>Initial concept sketches</li>
+                </ul>
+            </details>
+        </section>
+
+        <section class="card">
+            <h2>Learn More</h2>
+            <ul class="list">
+                <li><a href="https://en.wikipedia.org/wiki/Design_thinking" target="_blank">Wikipedia: Design
+                        Thinking</a></li>
+                <li><a href="https://www.ideou.com/pages/design-thinking" target="_blank">IDEO Official: Design
+                        Thinking</a>
+                </li>
+                <li><a href="https://www.interaction-design.org/literature/topics/design-thinking"
+                        target="_blank">Interaction
+                        Design Foundation</a></li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Videos</h2>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/_r0VX-aU_T8" title="Design Thinking Define Stage"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <br>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/2Vt7Ik8Ublw"
+                    title="Conceptualizing Solutions in Design Thinking"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 • Your Define & Conceptualize Phase Hub • Built with HTML, CSS & vanilla JS</p>
+        </footer>
+    </div>
+</body>
+
+</html>

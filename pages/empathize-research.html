@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Empathize & Research — Project Landing Page</title>
+    <style>
+        :root {
+            --bg: #f4f5f7;
+            --card: #ffffff;
+            --ink: #333;
+            --muted: #6b6b6b;
+            --accent: #0052cc;
+            --accent-light: #2a6dff;
+            --border: #dfe3eb;
+            --ok: #10b981;
+            --warn: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+            background: var(--bg);
+            color: var(--ink)
+        }
+
+        header {
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px
+        }
+
+        header h1 {
+            font-size: clamp(28px, 5vw, 48px)
+        }
+
+        header p {
+            margin-top: 12px;
+            font-size: 18px;
+            line-height: 1.4;
+            max-width: 760px;
+            margin-inline: auto
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: auto;
+            padding: 40px 20px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+            padding: 24px;
+            margin-bottom: 24px
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--accent)
+        }
+
+        .list li {
+            margin-bottom: 8px
+        }
+
+        .tree details {
+            background: #f1f2f4;
+            border: 1px solid #d1d3d6;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--accent)
+        }
+
+        .tree ul {
+            margin-top: 6px;
+            padding-left: 16px;
+            color: var(--muted)
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+        }
+
+        .video {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border)
+        }
+
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        .btn {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 10px 14px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px
+        }
+
+        .btn:hover {
+            background: var(--accent-light)
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Stepper */
+        .stepper {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            list-style: none;
+            margin: 6px 0 4px
+        }
+
+        .step {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            border-radius: 999px
+        }
+
+        .step .badge {
+            display: inline-grid;
+            place-items: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #e7efff;
+            color: #123;
+            font-weight: 700;
+            border: 1px solid #cfe0ff
+        }
+
+        .step.active {
+            border-color: #b9d4ff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .05)
+        }
+
+        .step.active .badge {
+            background: #2a6dff;
+            color: #fff;
+            border-color: #2a6dff
+        }
+
+        .step.done .badge {
+            background: #10b981;
+            color: #fff;
+            border-color: #10b981
+        }
+
+        /* Phase panel */
+        .phase-panel {
+            display: grid;
+            gap: 10px
+        }
+
+        .phase-title {
+            font-weight: 700
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .tag {
+            font-size: .78rem;
+            padding: .2rem .5rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: #4a5568;
+            background: #f8fafc
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 24px 16px;
+            font-size: 14px
+        }
+
+        /* Small helper */
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin: 8px 0
+        }
+
+        .ok {
+            color: var(--ok)
+        }
+
+        .warn {
+            color: var(--warn)
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Empathize & Research</h1>
+        <p>Understanding users through observation, interviews, and analysis — the human-centered foundation of the
+            design thinking journey.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- PROCESS FLOW / STEPPER -->
+        <section class="card" id="flow">
+            <h2>Design Thinking — Flow of Development</h2>
+            <p class="muted" style="margin-bottom:10px">Click a step to view goals, activities, and outputs.</p>
+            <ul class="stepper" id="stepper">
+                <li class="step active" data-phase="empathize"><span class="badge">1</span>Empathize</li>
+                <li class="step" data-phase="define"><span class="badge">2</span>Define</li>
+                <li class="step" data-phase="ideate"><span class="badge">3</span>Ideate</li>
+                <li class="step" data-phase="prototype"><span class="badge">4</span>Prototype</li>
+                <li class="step" data-phase="test"><span class="badge">5</span>Test</li>
+            </ul>
+
+            <div class="phase-panel" id="phase-panel">
+                <div><span class="phase-title">Empathize — Goals</span></div>
+                <ul class="list" id="phase-goals">
+                    <li>Understand user behaviors, contexts, constraints and motivations.</li>
+                    <li>Surface pains, desires, and success criteria in users’ own words.</li>
+                    <li>Collect evidence (quotes, artifacts, observations) to ground decisions.</li>
+                </ul>
+                <div class="row tags" id="phase-tags">
+                    <span class="tag">Interviews</span><span class="tag">Contextual inquiry</span><span
+                        class="tag">Empathy maps</span><span class="tag">Personas</span>
+                </div>
+                <div>
+                    <strong>Primary outputs:</strong>
+                    <span id="phase-outputs" class="muted">Personas, empathy maps, research insights, opportunity
+                        areas.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHASE OVERVIEW -->
+        <section class="card">
+            <h2>Phase Overview</h2>
+            <p>This stage is about immersing in the user’s world — who they are, what they need, and the environment
+                they inhabit. Replace assumptions with field evidence: listen, observe, and synthesize meaningful
+                insights.</p>
+        </section>
+
+        <!-- METHODS -->
+        <section class="card">
+            <h2>Research Methods</h2>
+            <ul class="list">
+                <li>• Stakeholder & Expert Interviews</li>
+                <li>• User Interviews & Surveys</li>
+                <li>• Contextual Observation & Field Studies</li>
+                <li>• Persona Creation & Empathy Mapping</li>
+                <li>• Competitive & Market Analysis</li>
+            </ul>
+        </section>
+
+        <!-- TREE -->
+        <section class="card tree">
+            <h2>UX Research Overview</h2>
+            <details open>
+                <summary>Goals</summary>
+                <ul>
+                    <li>Understand real user behavior & challenges</li>
+                    <li>Empathize with motivations & emotions</li>
+                    <li>Define clear user pain points and needs</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Techniques</summary>
+                <ul>
+                    <li>Interviews: one-on-one, open-ended questions</li>
+                    <li>Surveys: scale metrics + open feedback</li>
+                    <li>Observation: natural settings, shadowing</li>
+                    <li>Affinity mapping, Empathy maps, Personas</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Outputs</summary>
+                <ul>
+                    <li>User personas & empathy diagrams</li>
+                    <li>Key quotes, user stories, “jobs-to-be-done”</li>
+                    <li>Problem statements & insight clusters</li>
+                </ul>
+            </details>
+        </section>
+
+        <!-- YOUTUBE (WORKING EMBEDS + LINKS) -->
+        <section class="card">
+            <h2>Watch: Empathize & UX Research</h2>
+            <div class="grid grid-2" style="margin-bottom:12px">
+                <div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/WjZ3Csji_kQ"
+                            title="Introduction to UX Research (YouTube)"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p style="margin-top:8px">
+                        <a class="btn" href="https://www.youtube.com/watch?v=WjZ3Csji_kQ" target="_blank"
+                            rel="noopener">▶ Watch on YouTube</a>
+                    </p>
+                </div>
+
+                <div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/B7eWE2JJp8M" title="UX Research Methods: The Basics"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p style="margin-top:8px">
+                        <a class="btn" href="https://www.youtube.com/watch?v=B7eWE2JJp8M" target="_blank"
+                            rel="noopener">▶ Watch on YouTube</a>
+                    </p>
+                </div>
+            </div>
+            <p class="muted">Tip: add your own favorite playlist by replacing the video IDs above.</p>
+        </section>
+
+        <!-- OFFICIAL GUIDES / REFERENCES -->
+        <section class="card">
+            <h2>Guides & Templates</h2>
+            <ul class="list">
+                <li>• <a href="https://dschool.stanford.edu/tools/design-thinking-bootleg" target="_blank"
+                        rel="noopener">Stanford d.school — Design Thinking Bootleg</a></li>
+                <li>• <a href="https://web.stanford.edu/~mshanks/MichaelShanks/files/509554.pdf" target="_blank"
+                        rel="noopener">d.school Process Guide (PDF)</a></li>
+                <li>• <a href="https://designthinking.ideo.com/" target="_blank" rel="noopener">IDEO — What is Design
+                        Thinking?</a></li>
+                <li>• <a href="https://www.interaction-design.org/literature/article/5-stages-in-the-design-thinking-process"
+                        target="_blank" rel="noopener">IxDF — 5 Stages of Design Thinking</a></li>
+                <li>• <a href="https://www.ideou.com/blogs/inspiration/design-thinking-process" target="_blank"
+                        rel="noopener">IDEO U — Design Thinking Process (updated)</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2025 • Empathize & Research Hub • Built with HTML, CSS & vanilla JS</p>
+        </footer>
+    </div>
+
+    <script>
+        // Phase data for the stepper
+        const PHASES = {
+            empathize: {
+                goals: [
+                    "Understand user behaviors, contexts, constraints and motivations.",
+                    "Surface pains, desires, and success criteria in users’ own words.",
+                    "Collect evidence (quotes, artifacts, observations) to ground decisions."
+                ],
+                tags: ["Interviews", "Contextual inquiry", "Empathy maps", "Personas"],
+                outputs: "Personas, empathy maps, research insights, opportunity areas."
+            },
+            define: {
+                goals: [
+                    "Synthesize research into themes and insights.",
+                    "Frame clear problem statements and JTBD.",
+                    "Prioritize opportunities aligned to value & feasibility."
+                ],
+                tags: ["Affinity mapping", "Insight statements", "How Might We", "Problem framing"],
+                outputs: "Opportunity map, HMW statements, prioritized problem statement."
+            },
+            ideate: {
+                goals: [
+                    "Diverge to generate many solution ideas.",
+                    "Explore adjacent possibilities and constraints.",
+                    "Converge toward testable concepts."
+                ],
+                tags: ["Brainstorming", "Crazy 8s", "SCAMPER", "Concept cards"],
+                outputs: "Concept sketches, solution hypotheses, selection criteria."
+            },
+            prototype: {
+                goals: [
+                    "Make ideas tangible quickly to learn fast.",
+                    "Decide fidelity based on questions to answer.",
+                    "Prepare test scripts and success metrics."
+                ],
+                tags: ["Paper prototypes", "Click-throughs", "Wizard-of-Oz", "Design tokens"],
+                outputs: "Prototype(s), scenarios, test plan & success metrics."
+            },
+            test: {
+                goals: [
+                    "Validate assumptions with real users.",
+                    "Capture evidence, measure signals, and learn.",
+                    "Decide iterate / pivot / proceed."
+                ],
+                tags: ["Usability testing", "Think-aloud", "A/B checks", "Analytics"],
+                outputs: "Findings report, prioritized issues, iteration plan."
+            }
+        };
+
+        const stepper = document.getElementById('stepper');
+        const phasePanel = document.getElementById('phase-panel');
+        const goalsEl = document.getElementById('phase-goals');
+        const tagsEl = document.getElementById('phase-tags');
+        const outputsEl = document.getElementById('phase-outputs');
+
+        stepper.addEventListener('click', (e) => {
+            const li = e.target.closest('.step');
+            if (!li) return;
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            li.classList.add('active');
+            const key = li.dataset.phase;
+            const data = PHASES[key];
+
+            // Update goals
+            goalsEl.innerHTML = data.goals.map(g => `<li>${g}</li>`).join('');
+            // Update tags
+            tagsEl.innerHTML = data.tags.map(t => `<span class="tag">${t}</span>`).join('');
+            // Update outputs
+            outputsEl.textContent = data.outputs;
+
+            // Mark previous steps as done for a nice flow effect
+            const steps = Array.from(document.querySelectorAll('.step'));
+            const idx = steps.indexOf(li);
+            steps.forEach((s, i) => { s.classList.toggle('done', i < idx); });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Learn Canva — Official Links, Wikipedia Tree & YouTube</title>
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: #161e33;
+            --ink: #eaf0ff;
+            --muted: #9fb0d9;
+            --accent: #ffb86c;
+            --accent-2: #8be9fd;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, #0b1220, #0b1220 40%, #151e35);
+            color: var(--ink);
+        }
+
+        header {
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: clamp(24px, 4vw, 40px);
+        }
+
+        header p {
+            margin: 8px auto 0;
+            max-width: 800px;
+            color: var(--muted)
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px 60px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: radial-gradient(circle at top left, #1a2a52, transparent 30%), var(--card);
+            border: 1px solid #1f2a46;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+        }
+
+        .card h2 {
+            margin: .2rem 0 1rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: var(--accent-2)
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .tag {
+            font-size: .8rem;
+            padding: .2rem .6rem;
+            border: 1px solid #22334f;
+            border-radius: 999px;
+            color: #cbd3e0;
+        }
+
+        .list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            background: #0e1a2e;
+            border-radius: 8px;
+            border: 1px solid #22334f;
+            margin-bottom: 8px;
+            transition: transform .15s
+        }
+
+        .list a:hover {
+            transform: translateY(-2px)
+        }
+
+        .divider {
+            height: 1px;
+            background: #1f2a46;
+            margin: 16px 0
+        }
+
+        details {
+            background: #0e1a2e;
+            border: 1px solid #22334f;
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+
+        details+details {
+            margin-top: 8px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--accent)
+        }
+
+        .tree {
+            margin: 6px 0 0 0;
+            padding-left: 14px
+        }
+
+        .tree li {
+            margin: 4px 0;
+            color: var(--muted)
+        }
+
+        .video {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #1f2a46;
+            background: #000
+        }
+
+        .video::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%
+        }
+
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 24px 16px
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px
+        }
+
+        .search {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #22334f;
+            background: #0e1a2e;
+            color: var(--ink)
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn Canva, Faster 🎨</h1>
+        <p>All the key **Canva** resources—**official links**, a **Wikipedia-style overview**, and **YouTube
+            videos**—neatly organized to kickstart your learning.</p>
+    </header>
+
+    <div class="wrap">
+        <div class="row">
+            <input id="filter" class="search"
+                placeholder="Filter links & topics… (e.g., ‘free’, ‘templates’, ‘beginners’)">
+        </div>
+
+        <div class="grid">
+
+            <!-- OFFICIAL LINKS -->
+            <section class="card">
+                <h2>Official Canva Links</h2>
+                <div class="list">
+                    <a href="https://www.canva.com/" target="_blank" data-tags="official website">
+                        <span>🏠 Canva – Official Site</span><span class="tag">Official</span>
+                    </a>
+                    <a href="https://www.canva.com/about/" target="_blank" data-tags="about company mission">
+                        <span>ℹ About Canva</span><span class="tag">About</span>
+                    </a>
+                    <a href="https://www.canva.com/templates/" target="_blank" data-tags="templates free designs">
+                        <span>📄 Canva Templates</span><span class="tag">Templates</span>
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/Canva" target="_blank" data-tags="wikipedia overview">
+                        <span>🔗 Canva – Wikipedia</span><span class="tag">Wiki</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- WIKIPEDIA OVERVIEW -->
+            <section class="card">
+                <h2>Wikipedia Overview (Canva)</h2>
+                <div class="divider"></div>
+                <details open>
+                    <summary>About Canva</summary>
+                    <ul class="tree">
+                        <li>Online graphic design platform, launched in 2013</li>
+                        <li>Founded by Melanie Perkins, Cliff Obrecht & Cameron Adams</li>
+                        <li>Freemium model: Canva Free, Pro, Teams, Education, Nonprofit, Enterprise</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Stats & Reach</summary>
+                    <ul class="tree">
+                        <li>220 million users</li>
+                        <li>Templates, photo/video editing, drag-and-drop</li>
+                        <li>Available on web, iOS, Android, macOS, Windows, Linux</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Key Features</summary>
+                    <ul class="tree">
+                        <li>Templates for presentations, social media, print</li>
+                        <li>Real-time collaboration, Magic Studio AI tools</li>
+                        <li>Acquisition of Serif (Affinity tools) in 2024</li>
+                    </ul>
+                </details>
+            </section>
+
+            <!-- YOUTUBE VIDEOS -->
+            <section class="card">
+                <h2>Learn Through Videos</h2>
+                <div class="list">
+                    <a href="https://www.youtube.com/channel/UCEDLeLo3HNQZiJOTR2svg2A" target="_blank"
+                        data-tags="official channel">
+                        <span>▶ Official Canva YouTube Channel</span><span class="tag">YouTube</span>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=Llnmf5BXLBA" target="_blank"
+                        data-tags="tutorial beginners">
+                        <span>First Steps — Canva Tutorial Masterclass</span><span class="tag">Starter</span>
+                    </a>
+                </div>
+                <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UCEDLeLo3HNQZiJOTR2svg2A"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen title="Official Canva Channel"></iframe>
+                    </div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/Llnmf5BXLBA"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen title="Canva Tutorial for Beginners – Masterclass"></iframe>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <p class="muted">© 2025 — Curated by You • Built with HTML, CSS & vanilla JS</p>
+        </footer>
+    </div>
+
+    <script>
+        const filter = document.getElementById('filter');
+        const items = document.querySelectorAll('[data-tags]');
+        filter.addEventListener('input', () => {
+            const term = filter.value.trim().toLowerCase();
+            items.forEach(item => {
+                const tags = item.getAttribute('data-tags').toLowerCase();
+                const text = item.textContent.toLowerCase();
+                const show = !term || tags.includes(term) || text.includes(term);
+                item.style.display = show ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Thinking: Empathize & Research Phase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --primary-dark: #357ab8;
+            --secondary: #6e48aa;
+            --accent: #ff6b6b;
+            --light: #f9f9fb;
+            --dark: #2c3e50;
+            --text: #333;
+            --success: #42b883;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .header-graphic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        /* Navigation */
+        .process-nav {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 5px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-step.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .process-step:not(.active):hover {
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Methods List */
+        .methods-list {
+            list-style: none;
+        }
+
+        .methods-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .methods-list li:hover {
+            background: #f8f9ff;
+            padding-left: 10px;
+        }
+
+        .methods-list li i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(74, 144, 226, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--success);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-title i {
+            color: var(--success);
+        }
+
+        .resource-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-graphic"></div>
+        <div class="header-content">
+            <h1>Empathize & Research</h1>
+            <p>Every great design begins with understanding. I immerse myself in user research, market analysis, and
+                stakeholder interviews to truly grasp the problem space and user needs.</p>
+        </div>
+    </header>
+
+    <nav class="process-nav">
+        <ul class="process-steps">
+            <li class="process-step active">Empathize</li>
+            <li class="process-step">Define</li>
+            <li class="process-step">Ideate</li>
+            <li class="process-step">Prototype</li>
+            <li class="process-step">Test</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="section-title">
+            <h2>Design Thinking Process</h2>
+            <p>The foundation of human-centered design starts with deep understanding and empathy</p>
+        </div>
+
+        <div class="cards-container">
+            <div class="card animated">
+                <h3><i class="fas fa-binoculars"></i> About This Phase</h3>
+                <p>This stage is the foundation of the design thinking process. It's all about observing, listening, and
+                    asking the right questions to deeply understand the people and problems we're designing for.</p>
+                <p>We immerse ourselves in the user's world to gain insights that data alone can't provide, uncovering
+                    latent needs and emotional drivers.</p>
+                <p>This phase is all about asking the right questions and listening deeply to uncover insights that will
+                    guide the entire project.</p>
+            </div>
+
+            <div class="card animated delay-1">
+                <h3><i class="fas fa-tasks"></i> Methods Used</h3>
+                <ul class="methods-list">
+                    <li><i class="fas fa-user-friends"></i> User Interviews & Surveys</li>
+                    <li><i class="fas fa-chart-line"></i> Market Analysis</li>
+                    <li><i class="fas fa-handshake"></i> Stakeholder Interviews</li>
+                    <li><i class="fas fa-map-marked-alt"></i> Empathy Mapping</li>
+                    <li><i class="fas fa-eye"></i> Contextual Observation</li>
+                    <li><i class="fas fa-clipboard-list"></i> Journey Mapping</li>
+                    <li><i class="fas fa-search"></i> Competitive Analysis</li>
+                    <li><i class="fas fa-chart-bar"></i> Data Synthesis</li>
+                </ul>
+            </div>
+
+            <div class="card animated delay-2">
+                <h3><i class="fas fa-bullseye"></i> Key Outcomes</h3>
+                <p>By the end of this phase, we generate insights that define the problem space clearly, ensuring the
+                    project moves forward with a human-centered direction.</p>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">92%</div>
+                        <div class="stat-label">Project Clarity</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">78%</div>
+                        <div class="stat-label">Stakeholder Alignment</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">User Needs Identified</div>
+                    </div>
+                </div>
+
+                <p>These insights become the foundation for the entire design process, ensuring solutions are tailored
+                    to real user needs rather than assumptions.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Learning Resources</h2>
+            <p>Official resources to deepen your understanding of the Empathize & Research phase</p>
+        </div>
+
+        <div class="resource-card animated">
+            <h3 class="resource-title"><i class="fas fa-graduation-cap"></i> IDEO Design Thinking</h3>
+            <p>IDEO is a leading organization in design thinking. Their resources provide deep insights into the
+                empathize phase of design thinking.</p>
+            <a href="https://www.ideou.com/pages/design-thinking" class="resource-link" target="_blank">Explore IDEO
+                Design Thinking Resources →</a>
+        </div>
+
+        <div class="resource-card animated delay-1">
+            <h3 class="resource-title"><i class="fas fa-book"></i> Stanford d.school Field Guide</h3>
+            <p>The Stanford d.school is the birthplace of design thinking. Their field guide offers practical methods
+                for empathy and research.</p>
+            <a href="https://dschool.stanford.edu/resources/the-field-guide-to-human-centered-design"
+                class="resource-link" target="_blank">Access Stanford d.school Resources →</a>
+        </div>
+
+        <div class="resource-card animated delay-2">
+            <h3 class="resource-title"><i class="fas fa-video"></i> Interaction Design Foundation</h3>
+            <p>IXDF offers comprehensive courses on design thinking, with specific focus on user research methods and
+                empathy building.</p>
+            <a href="https://www.interaction-design.org/literature/topics/design-thinking" class="resource-link"
+                target="_blank">Explore IXDF Design Thinking Content →</a>
+        </div>
+
+        <div class="btn-container">
+            <a href="#" class="btn"><i class="fas fa-arrow-circle-right"></i> Proceed to Define Phase</a>
+            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Download Research Kit</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Design Thinking Process</div>
+            <p>Creating meaningful solutions through empathy and innovation</p>
+
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Methodology</a>
+                <a href="#">Case Studies</a>
+                <a href="#">Resources</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 Design Thinking Project | Built with Empathy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.card');
+            const resourceCards = document.querySelectorAll('.resource-card');
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+            });
+
+            resourceCards.forEach(card => {
+                card.style.opacity = '0';
+            });
+
+            setTimeout(() => {
+                cards.forEach(card => {
+                    card.classList.add('animated');
+                });
+
+                resourceCards.forEach(card => {
+                    card.classList.add('animated');
+                });
+            }, 100);
+
+            // Process steps interaction
+            const processSteps = document.querySelectorAll('.process-step');
+            processSteps.forEach(step => {
+                step.addEventListener('click', function () {
+                    processSteps.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python to AI Development Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A40E5;
+            --accent: #FF6B6B;
+            --python: #3776AB;
+            --django: #092E20;
+            --ai: #FF6B00;
+            --dark: #2D2B55;
+            --light: #F8F9FC;
+            --success: #4CC9F0;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f5 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-dot {
+            color: var(--accent);
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .hero-highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(107, 107, 255, 0.2);
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-accent:hover {
+            background: #ff5252;
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-python {
+            background: var(--python);
+            box-shadow: 0 5px 15px rgba(55, 118, 171, 0.3);
+        }
+
+        .btn-python:hover {
+            background: #2a5f8a;
+            box-shadow: 0 10px 25px rgba(55, 118, 171, 0.4);
+        }
+
+        .btn-ai {
+            background: var(--ai);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-ai:hover {
+            background: #e05a00;
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.4);
+        }
+
+        .hero-shape {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 550px;
+            height: 550px;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(74, 64, 229, 0.1) 100%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Tech Journey Section */
+        .tech-journey {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .journey-container {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            margin-top: 60px;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .journey-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .journey-content {
+            flex: 1;
+        }
+
+        .journey-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .journey-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .journey-step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .journey-step p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .python-icon {
+            background: linear-gradient(135deg, var(--python) 0%, #2a5f8a 100%);
+        }
+
+        .ai-icon {
+            background: linear-gradient(135deg, var(--ai) 0%, #e05a00 100%);
+        }
+
+        .django-icon {
+            background: linear-gradient(135deg, var(--django) 0%, #0d4d34 100%);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .skill-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            margin: 5px;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            background: linear-gradient(45deg, #4361ee, #3a0ca3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            padding: 5px 12px;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .python-tag {
+            background: rgba(55, 118, 171, 0.1);
+            color: var(--python);
+        }
+
+        .ai-tag {
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--ai);
+        }
+
+        .django-tag {
+            background: rgba(9, 46, 32, 0.1);
+            color: var(--django);
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--success);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .hero-shape {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-shape {
+                width: 450px;
+                height: 450px;
+            }
+
+            .journey-step,
+            .journey-step:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .journey-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-shape {
+                display: none;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Python<span class="logo-dot">AI</span>Flow</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#journey">Journey</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>From <span class="hero-highlight">Python</span> to <span class="hero-highlight">AI</span>
+                    Development</h1>
+                <p>Explore my journey from web scraping with Selenium to building intelligent systems with Django,
+                    Machine Learning, NLP, and DeepSeek AI integration. Let's create the future together.</p>
+                <div class="hero-btns">
+                    <a href="#journey" class="btn btn-python"><i class="fab fa-python"></i> View My Journey</a>
+                    <a href="#projects" class="btn btn-ai"><i class="fas fa-brain"></i> AI Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Tech Journey Section -->
+    <section id="journey" class="tech-journey">
+        <div class="container">
+            <h2 class="section-title">My Technical Journey</h2>
+
+            <div class="journey-container">
+                <div class="journey-step">
+                    <div class="journey-content">
+                        <h3>Web Scraping & Automation</h3>
+                        <p>My journey began with Python web scraping using BeautifulSoup and Selenium. I developed
+                            sophisticated scrapers that could extract data from complex websites, handle
+                            JavaScript-rendered content, and bypass anti-scraping mechanisms.</p>
+                        <p>I built automated systems for data collection, form filling, and browser automation that
+                            could save hundreds of hours of manual work.</p>
+                        <a href="#projects" class="btn btn-outline">View Scraping Projects</a>
+                    </div>
+                    <div class="journey-image" style="background: linear-gradient(45deg, #3776AB, #2a5f8a);">
+                        <div class="journey-number">1</div>
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-content">
+                        <h3>Django Web Development</h3>
+                        <p>I progressed to building robust web applications with Django. Creating RESTful APIs,
+                            implementing authentication systems, and designing database models became second nature.</p>
+                        <p>My Django projects focus on scalability, security, and maintainability, following best
+                            practices and clean architecture principles.</p>
+                        <a href="#projects" class="btn btn-outline">View Django Projects</a>
+                    </div>
+                    <div class="journey-image" style="background: linear-gradient(45deg, #092E20, #0d4d34);">
+                        <div class="journey-number">2</div>
+                        <i class="fab fa-python"></i>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-content">
+                        <h3>Machine Learning & NLP</h3>
+                        <p>I expanded into machine learning and natural language processing, building models for
+                            classification, prediction, and language understanding. From sentiment analysis to
+                            recommendation systems, I've implemented various ML solutions.</p>
+                        <p>My NLP work includes text classification, named entity recognition, and language generation
+                            using both traditional methods and modern transformers.</p>
+                        <a href="#projects" class="btn btn-outline">View ML Projects</a>
+                    </div>
+                    <div class="journey-image" style="background: linear-gradient(45deg, #FF6B00, #e05a00);">
+                        <div class="journey-number">3</div>
+                        <i class="fas fa-brain"></i>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-content">
+                        <h3>AI Integration & DeepSeek</h3>
+                        <p>My current focus is on integrating AI capabilities into practical applications. I work with
+                            DeepSeek and other AI models to create intelligent systems that can understand context,
+                            generate content, and make data-driven decisions.</p>
+                        <p>I develop AI-enhanced applications that combine the power of large language models with
+                            custom business logic for unique solutions.</p>
+                        <a href="#projects" class="btn btn-outline">View AI Projects</a>
+                    </div>
+                    <div class="journey-image" style="background: linear-gradient(45deg, #6C63FF, #4A40E5);">
+                        <div class="journey-number">4</div>
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon python-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python Development</h3>
+                    <p>Expertise in Python programming, web scraping, data analysis, and automation with libraries like
+                        Pandas, NumPy, and BeautifulSoup.</p>
+                    <a href="#projects" class="btn btn-python">View Projects</a>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-window-restore"></i>
+                    </div>
+                    <h3>Selenium Automation</h3>
+                    <p>Advanced browser automation with Selenium for testing, scraping, and automating complex web
+                        interactions and workflows.</p>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon django-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Django Framework</h3>
+                    <p>Building scalable web applications, REST APIs, and database-driven systems with Django and Django
+                        REST Framework.</p>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon ai-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Developing ML models for prediction, classification, and clustering using Scikit-learn,
+                        TensorFlow, and PyTorch.</p>
+                    <a href="#projects" class="btn btn-ai">View Projects</a>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Natural Language Processing</h3>
+                    <p>Implementing NLP solutions for text analysis, sentiment detection, and language generation using
+                        NLTK, spaCy, and transformers.</p>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Integrating AI capabilities into applications using DeepSeek, OpenAI, and custom models to create
+                        intelligent systems.</p>
+                    <a href="#projects" class="btn btn-ai">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="django">Django</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="python">
+                    <div class="project-img">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Advanced Web Scraper</h3>
+                        <p>A sophisticated web scraping system using Selenium that can extract data from
+                            JavaScript-heavy websites and bypass anti-bot protections.</p>
+                        <div class="project-tags">
+                            <span class="project-tag python-tag">Python</span>
+                            <span class="project-tag">Selenium</span>
+                            <span class="project-tag">Web Scraping</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="btn btn-python">View Code</a>
+                            <a href="#" class="btn btn-outline">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="django">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured e-commerce platform built with Django, featuring user authentication, payment
+                            processing, and inventory management.</p>
+                        <div class="project-tags">
+                            <span class="project-tag django-tag">Django</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="btn">Live Demo</a>
+                            <a href="#" class="btn btn-outline">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-img">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Chatbot</h3>
+                        <p>An intelligent chatbot using NLP and DeepSeek integration that can understand context and
+                            provide helpful responses to user queries.</p>
+                        <div class="project-tags">
+                            <span class="project-tag ai-tag">AI</span>
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">DeepSeek</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="btn btn-ai">Try Chatbot</a>
+                            <a href="#" class="btn btn-outline">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="python">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Automation System</h3>
+                        <p>A Python-based automation system that handles repetitive tasks, data processing, and report
+                            generation with minimal human intervention.</p>
+                        <div class="project-tags">
+                            <span class="project-tag python-tag">Python</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Selenium</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="btn btn-python">View Code</a>
+                            <a href="#" class="btn btn-outline">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Predictive Analytics</h3>
+                        <p>A machine learning system that analyzes historical data to predict future trends and provide
+                            actionable insights for business decisions.</p>
+                        <div class="project-tags">
+                            <span class="project-tag ai-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Data Science</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="btn btn-ai">View Demo</a>
+                            <a href="#" class="btn btn-outline">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="django">
+                    <div class="project-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>REST API Framework</h3>
+                        <p>A comprehensive REST API built with Django REST Framework that serves as the backend for
+                            multiple web and mobile applications.</p>
+                        <div class="project-tags">
+                            <span class="project-tag django-tag">Django</span>
+                            <span class="project-tag">REST API</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="btn">API Docs</a>
+                            <a href="#" class="btn btn-outline">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Collaborate</h3>
+                    <p>Have a project in mind or want to discuss potential collaborations? Feel free to reach out! I'm
+                        always excited to talk about Python, AI, and innovative technology solutions.</p>
+
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> hello@pythonai.dev</p>
+                        <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Digital Space</p>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PythonAI.Flow</h3>
+                    <p>A showcase of my journey from Python development to AI integration. Let's create intelligent
+                        solutions together.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#journey">Journey</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 PythonAI.Flow. All rights reserved. | Designed with passion for technology</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if (category === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Basic validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && subject && message) {
+                // In a real application, you would send the form data to a server here
+                alert('Thanks for your message! I\'ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+
+        // Add scroll animation for elements
+        window.addEventListener('scroll', () => {
+            const journeySteps = document.querySelectorAll('.journey-step');
+            const skillCards = document.querySelectorAll('.skill-card');
+            const projectCards = document.querySelectorAll('.project-card');
+            const scrollPosition = window.scrollY;
+
+            journeySteps.forEach((step, index) => {
+                const stepPosition = step.getBoundingClientRect().top;
+                if (stepPosition < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        step.style.opacity = 1;
+                        step.style.transform = 'translateY(0)';
+                    }, index * 300);
+                }
+            });
+
+            skillCards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                if (cardPosition < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = 1;
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+
+            projectCards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                if (cardPosition < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = 1;
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+
+            // Update active navigation link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (scrollPosition >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Initialize animations
+        document.querySelectorAll('.journey-step').forEach(step => {
+            step.style.opacity = 0;
+            step.style.transform = 'translateY(50px)';
+            step.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        });
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+    </script>
+</body>
+
+</html>
